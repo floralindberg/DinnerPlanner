@@ -1,13 +1,13 @@
 import { Summary } from "./summaryPresenter.jsx";
+import { Sidebar } from "./sidebarPresenter.jsx";
 
 // const ReactRoot = observer(   //  will be added in week 3
 function ReactRoot(props){
     return (<div>
-                <div><span id="TODO">Replace this span with a rendering of Sidebar</span></div>
+                <div><Sidebar model={props.model} /></div>
                 <div><Summary model={props.model} /></div>
             </div>
-           );
+            );
 }
-// )
 
 export { ReactRoot }

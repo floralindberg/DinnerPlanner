@@ -1,8 +1,8 @@
 /* 
-   The Model keeps the state of the application (Application State). 
+   The Model keeps the state of the application (Application State).
    It is an abstract object, i.e. it knows nothing about graphics and interaction.
 */
-const model = {  
+const model = {
     numberOfGuests: 2,
     dishes: [],
     currentDishId: null,  // null means "intentionally empty"
