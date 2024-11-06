@@ -1,6 +1,6 @@
-/* 
-   The Model keeps the state of the application (Application State).
-   It is an abstract object, i.e. it knows nothing about graphics and interaction.
+/*
+    The Model keeps the state of the application (Application State).
+    It is an abstract object, i.e. it knows nothing about graphics and interaction.
 */
 const model = {
     numberOfGuests: 2,
@@ -8,11 +8,14 @@ const model = {
     currentDishId: null,  // null means "intentionally empty"
 
     setCurrentDishId(dishId){
-        // this.someProperty= someValue
+        this.currentDishId = dishId;
     },
     
     setNumberOfGuests(number){
-
+        if (!Number.isInteger(number) || number <= 0) {
+            throw new Error("number of guests not a positive integer");
+        }
+        this.numberOfGuests = number;
     },
     
     addToMenu(dishToAdd){
@@ -24,12 +27,12 @@ const model = {
     // filter callback exercise
     removeFromMenu(dishToRemove){
         function shouldWeKeepDishCB(dish){
-
+            return dish.id != dishToRemove.id;
         }
-        this.dishes= this.dishes.filter(/* pass the callback */);
+        this.dishes= this.dishes.filter(shouldWeKeepDishCB);
     },
     
- 
+
     // more methods will be added here, don't forget to separate them with comma!
 };
 

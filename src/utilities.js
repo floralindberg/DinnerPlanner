@@ -1,39 +1,67 @@
 /* uncomment the export below to enable the 1.1.2 test suite! */
-/* export */ function compareIngredientsCB(ingredientA, ingredientB){
-    return // TODO
+export function compareIngredientsCB(ingredientA, ingredientB){
+    if (ingredientA.aisle > ingredientB.aisle) {
+        return 1;
+    }
+    if (ingredientA.aisle < ingredientB.aisle) {
+        return -1;
+    }
+
+    else if (ingredientA.name > ingredientB.name) {
+        return 1;
+    }
+
+    else if (ingredientA.name < ingredientB.name) {
+        return -1;
+    }
+    return 0;
 }
 
 export function sortIngredients(ingredients){
-    return // TODO
+    return [... ingredients].sort(compareIngredientsCB);
 }
 
-/* export */ function isKnownTypeCB(type){
+export function isKnownTypeCB(type){
+    return type == "starter" || type == "main course" || type == "dessert";
     // don't forget the return keyword (goes for all functions below)
 }
 
-export function dishType(dish){
+export function dishType(dish) {
+    if (dish.dishTypes && dish.dishTypes.find(isKnownTypeCB)) {
+        return dish.dishTypes.find(isKnownTypeCB);
+    }
+    else return "";
 }
 
-/* export */ function compareDishesCB(dishA, dishB){
+export function compareDishesCB(dishA, dishB){
+    const values = {"": 0, "starter": 1, "main course": 2, "dessert": 3};
+
+    return values[dishType(dishA)] - values[dishType(dishB)];
 }
 
 
 export function sortDishes(dishes){
+    const clone = [...dishes].sort(compareDishesCB);
+    return clone;
 }
 
-/*export */ function menuPrice(dishesArray){
- 
+export function menuPrice(dishesArray){
+
+    function sumPriceCB(result, dishes) {
+        return result + dishes.pricePerServing;
+    }
+    return dishesArray.reduce(sumPriceCB, 0);
 }
 
-/* 
-  This function is already implemented as it is more JavaScript + algorithms than interaction programming
+/*
+    This function is already implemented as it is more JavaScript + algorithms than interaction programming
 
-   Given a menu of dishes, generate a list of ingredients. 
-   If an ingredient repeats in several dishes, it will be returned only once, with the amount added up 
-   
-   As this is not an algorithm course, the function is mostly written but you have 2 callback passing TODOs.
+    Given a menu of dishes, generate a list of ingredients.
+    If an ingredient repeats in several dishes, it will be returned only once, with the amount added up
+
+    As this is not an algorithm course, the function is mostly written but you have 2 callback passing TODOs.
 */
-function shoppingList(dishes){
+export function shoppingList(dishes){
     const result={}; // object used as mapping between ingredient ID and ingredient object
 
     // we define the callback inside the function, though this is not strictly needed in this case. But see below.
@@ -50,7 +78,7 @@ function shoppingList(dishes){
             result[ingredient.id]={...ingredient};
             
             // JS Notes about the line above:
-            // 1)    result[ingredient.id] 
+            // 1)    result[ingredient.id]
             // In JS object.property is the same as object["property"] but the second notation is more powerful because you can write
             // object[x]  where x=="property"
             
@@ -63,9 +91,9 @@ function shoppingList(dishes){
         }
     }
 
-    const arrayOfIngredientArrays= dishes.map(/*TODO pass the callback that transforms a dish to its ingredients */);
-    const allIngredients= arrayOfIngredientArrays.flat();    
-    allIngredients.forEach(/* TODO: pass the callback that treats an ingredient */);
+    const arrayOfIngredientArrays= dishes.map(keepJustIngredientsCB);
+    const allIngredients= arrayOfIngredientArrays.flat();
+    allIngredients.forEach(ingredientCB);
 
     // Note: the 3 lines above can be written as a function chain:
     // dishes.map(callback1).flat().forEach(callback2);

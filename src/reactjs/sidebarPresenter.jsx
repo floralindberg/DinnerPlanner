@@ -5,7 +5,7 @@ const Sidebar = observer(             // needed for the presenter to update (its
     
     function SidebarRender(props){
         function changeGuestsACB(number){
-           return props.model.setNumberOfGuests(number);
+            return props.model.setNumberOfGuests(number);
         }
         function setDishACB(dish){
             return props.model.setCurrentDishId(dish.id);
@@ -16,7 +16,6 @@ const Sidebar = observer(             // needed for the presenter to update (its
         }
 
         return <SidebarView number={props.model.numberOfGuests} dishes={props.model.dishes} onNumberChange={changeGuestsACB} intrestedInDish={setDishACB} dishToRemove={removeDishACB}/>;
-       
     }
 );
 

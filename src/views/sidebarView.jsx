@@ -27,24 +27,24 @@ export function SidebarView (props) {
             return props.intrestedInDish(dish)
         }
 
-        return ( 
+        return (
                     <tr key={dish.id } >
                         <td> <button onClick={removeDish}>x</button></td>
                         <td> <a href="#dish.title" onClick={hyperLinkACB}> {dish.title} </a></td>
                         <td> <span> {dishType(dish)} </span> </td>
-                        <td className="righty">{(dish.pricePerServing*props.number).toFixed(2)} </td>
-                   </tr>
+                        <td className="right">{(dish.pricePerServing*props.number).toFixed(2)} </td>
+                    </tr>
                 )
-               
+        
     }
 
     return(
     <div>
-           <button disabled={props.number == 1} onClick={updateMinusACB}>-</button>
-                <span>
-                   {props.number} 
-                </span>
-            <button  onClick={updatePlusACB}>+</button>  
+        <button disabled={props.number == 1} onClick={updateMinusACB}>-</button>
+            <span>
+                {props.number} 
+            </span>
+        <button  onClick={updatePlusACB}>+</button>
 
             <table>
                 <tbody>
@@ -55,14 +55,11 @@ export function SidebarView (props) {
                         <td></td>
                         <td> Total:  </td>
                         <td></td>
-                     <td className="righty">{(menuPrice(props.dishes)*props.number).toFixed(2)}</td>
-                 </tr>
-                </tbody> 
+                        <td className="right">{(menuPrice(props.dishes)*props.number).toFixed(2)}</td>
+                    </tr>
+                </tbody>
             </table>
-     
     </div>
-
-
 )
     }
 
