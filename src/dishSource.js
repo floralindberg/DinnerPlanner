@@ -3,29 +3,18 @@ import { PROXY_KEY } from "./apiConfig";
 
 
 export function searchDishes(searchParams){
-    return fetch(url + "complexSearch", { method: 'GET',
+    return fetch(PROXY_URL + "/recipes/complexSearch", {
         headers: {
-            'X-DH2642-key': PROXY_KEY,
-            'X-DH2642-Group': "12"
-        },}).then(gotResponseACB);
+            "X-DH2642-Key": PROXY_KEY,
+            'X-DH2642-Group' : "12",
+        }
+    }).then(gotResponseACB).then(someACB);
 }
 
-//{method: "GET", headers: { "X-DH2642-key": PROXY_KEY, "X-DH2642-Group":"X-DH2642-12" },}
-
-function responseACB(response){
-    return console.log(response); //alternativt response.json()
+function gotResponseACB(response){
+    console.log(response);
 }
 
-function gotResponseACB(url){
-     return fetch(url).then(responseACB)
+function someACB(param){
+    console.log(param);
 }
-
-const url = PROXY_URL;
-const options = {
-	method: 'GET',
-	headers: {
-		'X-DH2642-key': PROXY_KEY,
-		'X-DH2642-Group': "12"
-	}
-};
-
