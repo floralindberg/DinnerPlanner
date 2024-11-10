@@ -44,9 +44,12 @@ function menuACB(param) {
 }
 
 export function getDishDetails(id){
-    return getMenuDetails(id).then(arrToObjACB)
+    return getMenuDetails([id]).then(arrToObjACB)
 }
 
+
+
 function arrToObjACB(arr){
+    return arr[0];
 
 }
