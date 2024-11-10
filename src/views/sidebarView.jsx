@@ -17,6 +17,7 @@ export function SidebarView (props) {
     }
 
     function dishesTableRowCB(dish){
+        
         function removeDish(evt) {
             console.log(evt) // incase all of the information about the event is necessary
             console.log("Dish to remove: ", dish.title)
