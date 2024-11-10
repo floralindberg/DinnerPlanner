@@ -1,27 +1,21 @@
 
 export function SearchFormView(props){ 
-
-    const { dishTypeOptions, text, type } = props;
-   
-    const dishes = [
-        {display: "Starter", value :"s"},
-        {display: "Main course", value:"m"},
-        {display: "Dessert", value : "d"}
-    ]
     
-    function renderOptionsCB(optionObj){
-        return <option key = {optionObj.value} value={optionObj.value}>{optionObj.display}</option>
+    function renderOptionsCB(optionStrng){
+        return <option key = {optionStrng} value={optionStrng}>{optionStrng}</option>
 
     }
+
 return (
     <div>
         <span>
             <input value = {props.text || ""}></input>
         </span>
         <span>
-            <select value = {props.text || ""}> 
-            <option value="">Choose:</option>{
-           dishes.map(renderOptionsCB)
+            <select value = {props.type || ""}> 
+            <option value="">Choose:</option>
+            {
+            props.dishTypeOptions.map(renderOptionsCB)
             }
           </select>
           </span>
@@ -32,7 +26,7 @@ return (
 )
 }
 
-
+/*
 {
 /* OKLART OM MAN SKA HA DESSA UTANFÖR ELLER INNANFÖR, KOMMER ISF BEHÖVA identifiera options som i filmen JSX 15:25
 const types = [
@@ -52,5 +46,5 @@ const types = [
              <option value="Main course ">Main course </option>
              <option value="Dessert">Dessert</option>
 */
-}
+}*/
 
