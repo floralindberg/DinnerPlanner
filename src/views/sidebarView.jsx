@@ -25,7 +25,7 @@ export function SidebarView (props) {
         }
         function hyperLinkACB(evt){
             console.log("Clicked dish:",dish.title)
-            return props.intrestedInDish(dish)
+            return props.interestedInDish(dish)
         }
 
         return (

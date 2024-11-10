@@ -15,7 +15,7 @@ const Sidebar = observer(             // needed for the presenter to update (its
             return props.model.removeFromMenu(dish);
         }
 
-        return <SidebarView number={props.model.numberOfGuests} dishes={props.model.dishes} onNumberChange={changeGuestsACB} intrestedInDish={setDishACB} dishToRemove={removeDishACB}/>;
+        return <SidebarView number={props.model.numberOfGuests} dishes={props.model.dishes} onNumberChange={changeGuestsACB} interestedInDish={setDishACB} dishToRemove={removeDishACB}/>;
     }
 );
 

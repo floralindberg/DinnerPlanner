@@ -9,15 +9,15 @@ export function SearchFormView(props){
         <div>
             <span>
                 <input value = {props.text || ""} onChange = {sendTextContentACB}></input>
-             </span>
-             <span>
-                <select value = {props.type || ""} onChange = {selectedTypeACB}> 
+            </span>
+            <span>
+                <select value = {props.type || ""} onChange = {selectedTypeACB}>
                     <option value="">Choose:</option>
                     {
-                         props.dishTypeOptions.map(renderOptionsCB)
+                        props.dishTypeOptions.map(renderOptionsCB)
                     }
                 </select>
-             </span>
+            </span>
             <span>
                 <button title="search" onClick={searchForDishACB}>Search!</button>
             </span>
@@ -41,25 +41,3 @@ export function SearchFormView(props){
     }
 
 }
-/*
-{
-OKLART OM MAN SKA HA DESSA UTANFÖR ELLER INNANFÖR, KOMMER ISF BEHÖVA identifiera options som i filmen JSX 15:25
-const types = [
-    {display: "Starter", value :"type1"},
-    {display: "Main course", value:"type2"},
-    {display: "Dessert", value : "type3"}
-]
- <option value= "">Choose:</option>
-              {dishTypes.map((optionStrng) => (
-             <option key={optionStrng} value={optionStrng}>
-               {optionStrng}
-             </option>
-          ))}
-
-          alt2:
-            <option value="Starter">Starter</option>
-             <option value="Main course ">Main course </option>
-             <option value="Dessert">Dessert</option>
-
-}
-*/
