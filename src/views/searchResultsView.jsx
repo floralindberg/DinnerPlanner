@@ -4,22 +4,23 @@ export function SearchResultsView(props){
 
     function renderResultsCB(searchResult){
         return (
-            <span key={searchResult.id} className="spanet">
+            <span key={searchResult.id} className="spanet" onClick={clickedACB}>
 
-                <img src={searchResult.image} height={'100'} className="image" onClick={clickedACB}/>
-                <div onClick={clickedACB}>{searchResult.title}</div>
+                <img src={searchResult.image} height={'100'} className="image" />
+                <div>{searchResult.title}</div>
 
             </span>
         )
 
         function clickedACB(evt){
-            console.log(searchResult);
-            return searchResult.onDishClicked(searchResult);
+            console.log(evt);
+            return props.onDishClicked(searchResult);
         }
+
     }
 
     return (
-        <div className="result" on>
+        <div className="result" onClick={showsDetailsACB}>
                 {
                     props.searchResults.map(renderResultsCB)
                 }
@@ -27,7 +28,7 @@ export function SearchResultsView(props){
     )
 
     function showsDetailsACB(dishObj){
-        console.log(dishObj.target.value);
+        console.log(dishObj);
     }
 
 }

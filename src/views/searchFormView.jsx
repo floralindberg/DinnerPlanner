@@ -1,5 +1,5 @@
 
-export function SearchFormView(props){ 
+export function SearchFormView(props){
     
     function renderOptionsCB(optionStrng){
         return <option key = {optionStrng} value={optionStrng}>{optionStrng}</option>
@@ -26,7 +26,7 @@ export function SearchFormView(props){
                 
 
     function sendTextContentACB(evt){
-        console.log(evt.target.value) 
+        console.log(evt.target.value)
         props.onTextContent(evt.target.value)
     }
 
