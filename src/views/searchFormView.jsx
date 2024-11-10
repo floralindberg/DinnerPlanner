@@ -19,8 +19,8 @@ return (
             <input value = {props.text || ""}></input>
         </span>
         <span>
-            <select value = ""> 
-            <option>Choose:</option>{
+            <select value = {props.text || ""}> 
+            <option value="">Choose:</option>{
            dishes.map(renderOptionsCB)
             }
           </select>
