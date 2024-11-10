@@ -2,37 +2,34 @@ import "/src/style.css"
 
 export function SearchResultsView(props){
 
-    return (
+    function renderResultsCB(searchResult){
+        return (
 
-        <div>
-            <span key={props.id} className="flelin">
+            <span key={searchResult.id} className="spanet">
 
-
-                <div>
-
-                    
-                </div>
-
-
-
+                <img src={searchResult.image} height={'100'} className="image"/> 
+                <div>{searchResult.title}</div>
 
             </span>
 
 
+        )
+    }
+    return (
 
-
-
-
-
+        <div className="result">
+                {
+                   props.searchResults.map(renderResultsCB)
+                }
         </div>
-
-
-
-
-
-
-
-
     )
 
+}
+
+{/*
+    function renderResultsCB(searchResult){
+        return <div key={searchResult.id}>{searchResult.title + " | " + searchResult.image + " | " + searchResult.id + " | " + searchResult.sourceUrl + " | "}</div>
+            
+    }
+    */
 }

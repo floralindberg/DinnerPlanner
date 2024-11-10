@@ -5,6 +5,21 @@
 .right {
     text-align: right;
 }
-.center {
-    text-align:center;
+
+.spanet {
+   text-align: center;
+}
+.image {
+    display: inline-block;
+    width: 150px;
+    vertical-align: top;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.result {
+    display: flex;
+    gap: 50px;
+
+
 }
