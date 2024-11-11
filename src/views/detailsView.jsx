@@ -19,7 +19,7 @@ export function DetailsView(props){
         return (
             <div>
                 <span className="inTable">{ingredients.name}:</span>
-                <span className="inTable">{ingredients.measures.metric.amount}</span>
+                <span className="inTable">{ingredients.measures.us.amount}</span>
                 <span className="inTable">{ingredients.measures.us.unitShort}</span>
             </div>
                 
@@ -74,7 +74,7 @@ export function DetailsView(props){
                         }
                     </div>
 
-                    <div>
+                    <div className="info">
                         <a href={props.dishData.sourceUrl} target="_blank">More information</a>
                     </div>
 
