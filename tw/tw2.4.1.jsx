@@ -20,9 +20,9 @@ const preamble=<div><p> This is the TW2.4.1 Details presenter test</p>
                  <p>Edit tw/tw2.4.1.js to see other dishes</p>
                  <p>You can access and manipulate the model from the Console using myModel. Changing the model should be visible in the user interface.</p>
                  <hr/></div>;    
-    //const AA= 523145,   BB= 787321,   CC= 452179;
+    const AA= 523145,   BB= 787321,   CC= 452179;
     //const AA= 548321,   BB= 758118,   CC=    1152690;
-    const AA= 1445969,  BB=  1529625, CC=    32104;
+   //const AA= 1445969,  BB=  1529625, CC=    32104;
 
     window.myModel= reactiveMethod(model);
     

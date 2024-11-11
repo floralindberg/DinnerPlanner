@@ -44,8 +44,8 @@ const model = {
     
 
     // more methods will be added here, don't forget to separate them with comma!
-     setSearchQuery(query){
-       this.searchParams.query = query;
+    setSearchQuery(query){
+        this.searchParams.query = query;
     },
 
     setSearchType(type){

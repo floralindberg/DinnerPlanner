@@ -1,5 +1,3 @@
-import { render } from "@testing-library/react";
-import { getMenuDetails } from "../dishSource";
 import "/src/style.css"
 
 export function DetailsView(props){
@@ -86,7 +84,7 @@ export function DetailsView(props){
 
     function addToMenuACB(evt){
         console.log(evt)
-        return props.addingRecipe()
+        return props.onAddToMenu()
     }
 
     function cancelDishACB(evt){
