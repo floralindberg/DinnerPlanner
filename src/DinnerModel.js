@@ -1,5 +1,6 @@
 import { resolvePromise } from "./resolvePromise";
 import { searchDishes } from "./dishSource";
+import { getDishDetails } from "./dishSource";
 /*
     The Model keeps the state of the application (Application State).
     It is an abstract object, i.e. it knows nothing about graphics and interaction.
@@ -10,9 +11,14 @@ const model = {
     currentDishId: null,  // null means "intentionally empty"
     searchParams: {},
     searchResultsPromiseState: {},
+    currentDishPromiseState: {},
 
     setCurrentDishId(dishId){
+        if(!dishId || dishId === this.currentDishId){
+            return;
+        }
         this.currentDishId = dishId;
+        resolvePromise(getDishDetails(dishId),this.currentDishPromiseState);
     },
     
     setNumberOfGuests(number){
@@ -47,8 +53,7 @@ const model = {
     },
 
     doSearch(params){
-        this.searchResultsPromiseState.promise = searchDishes(params);
-        resolvePromise(this.searchResultsPromiseState.promise,this.searchResultsPromiseState);
+        resolvePromise(searchDishes(params),this.searchResultsPromiseState);
     }
 };
 
