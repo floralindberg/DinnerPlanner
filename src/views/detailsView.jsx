@@ -19,7 +19,7 @@ export function DetailsView(props){
         return (
             <div>
                 <span className="inTable">{ingredients.name}:</span>
-                <span className="inTable">{ingredients.measures.metric.amount}</span>
+                <span className="inTable">{ingredients.measures.us.amount}</span>
                 <span className="inTable">{ingredients.measures.us.unitShort}</span>
             </div>
                 

@@ -13,6 +13,7 @@ const Search = observer (
             }
 
             function setSearchDishTypeACB(type){
+                //? console.log(props.model.dishes)
                 props.model.setSearchType(type)
             }
 

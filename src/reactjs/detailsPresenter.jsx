@@ -4,6 +4,7 @@ import { observer } from "mobx-react-lite";
 
 const Details = observer(
               // needed for the presenter to update (its view) when relevant parts of the model change
+
     function DetailsRender(props){
         if(!props.model.currentDishPromiseState.promise){
             return <div>No data</div>
@@ -21,11 +22,13 @@ const Details = observer(
         }
 
         function isDishInMenuCB(){
+            console.log(props.model.dishes)
             return props.model.currentDishPromiseState.data.id;
         }
 
         function addToMenuHandlerACB(){
-            props.model.addToMenu(props.model.currentDishPromiseState.data);
+
+           return props.model.addToMenu(props.model.currentDishPromiseState.data);
         }
 
     }
