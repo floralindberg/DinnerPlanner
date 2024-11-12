@@ -1,3 +1,4 @@
+import "/src/style.css"
 
 export function SearchFormView(props){
     
@@ -8,10 +9,10 @@ export function SearchFormView(props){
     return (
         <div>
             <span>
-                <input value = {props.text || ""} onChange = {sendTextContentACB}></input>
+                <input value = {props.text || ""} onChange = {sendTextContentACB} className="searching"></input>
             </span>
             <span>
-                <select value = {props.type || ""} onChange = {selectedTypeACB}>
+                <select value = {props.type || ""} onChange = {selectedTypeACB} className="searching">
                     <option value="">Choose:</option>
                     {
                         props.dishTypeOptions.map(renderOptionsCB)
@@ -19,7 +20,7 @@ export function SearchFormView(props){
                 </select>
             </span>
             <span>
-                <button title="search" onClick={searchForDishACB}>Search!</button>
+                <button title="search" onClick={searchForDishACB} className="searching">Search!</button>
             </span>
         </div>
     );

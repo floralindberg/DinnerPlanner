@@ -1,6 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { SearchFormView } from "../views/searchFormView";
 import { SearchResultsView } from "../views/searchResultsView";
+import "/src/style.css";
 
 
 const Search = observer (
@@ -48,7 +49,7 @@ const Search = observer (
                 props.model.setCurrentDishId(dish.id);
             }
 
-            return <div><SearchFormView dishTypeOptions= {["starter", "main course", "dessert"]} text = {props.model.searchParams.query}
+            return <div className="searchResult"><SearchFormView dishTypeOptions= {["starter", "main course", "dessert"]} text = {props.model.searchParams.query}
             type = {props.model.searchParams.type} onTextContent={setSearchTextACB} onTypeSelected={setSearchDishTypeACB}
             onButtonClicked={searchNowACB}  />{conditionsForReturn(props.model.searchResultsPromiseState)}</div>
 

@@ -19,6 +19,7 @@ const model = {
         }
         this.currentDishId = dishId;
         resolvePromise(getDishDetails(dishId),this.currentDishPromiseState);
+        console.log("nuvarande currentDishId:", dishId);
     },
     
     setNumberOfGuests(number){
@@ -32,6 +33,7 @@ const model = {
         // array spread syntax example. Make sure you understand the code below.
         // It sets this.dishes to a new array [   ] where we spread (...) the elements of the existing this.dishes
         this.dishes= [...this.dishes, dishToAdd];
+        console.log("added:", dishToAdd.title, dishToAdd.id);
     },
 
     // filter callback exercise

@@ -7,7 +7,7 @@
 }
 
 .spanet {
-    align-items: center;
+    text-align: center;
 }
 
 .image {
@@ -41,6 +41,29 @@
 
 .buttons {
     margin-bottom: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.textSidebar {
+    text-align: bottom;
+}
+
+.buttonXSidebar {
+    width: 25px;
+    margin-top: 20px;
+}
+.buttonPSidebar {
+    width: 25px;
+    margin-left: 15px;
+}
+
+.buttonMSidebar {
+    width: 25px;
+    margin-left: 3px;
+}
+
+.info {
+    margin-bottom: 20px;
 }
 
 .inTable {
@@ -55,4 +78,9 @@
     border-style:solid;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.searching {
+    margin-top: 20px;
+    margin-right: 10px;
 }

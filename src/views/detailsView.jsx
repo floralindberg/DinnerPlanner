@@ -74,7 +74,7 @@ export function DetailsView(props){
                         }
                     </div>
 
-                    <div>
+                    <div className="info">
                         <a href={props.dishData.sourceUrl} target="_blank">More information</a>
                     </div>
 

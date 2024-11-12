@@ -30,9 +30,9 @@ export function SidebarView (props) {
 
         return (
                     <tr key={dish.id } >
-                        <td> <button onClick={removeDish}>x</button></td>
-                        <td> <a href="#dish.title" onClick={hyperLinkACB}> {dish.title} </a></td>
-                        <td> <span> {dishType(dish)} </span> </td>
+                        <td> <button className="buttonXSidebar" onClick={removeDish}>x</button></td>
+                        <td> <a className="textSidebar" href="#dish.title" onClick={hyperLinkACB}> {dish.title} </a></td>
+                        <td> <span > {dishType(dish)} </span> </td>
                         <td className="right">{(dish.pricePerServing*props.number).toFixed(2)} </td>
                     </tr>
                 )
@@ -41,11 +41,11 @@ export function SidebarView (props) {
 
     return(
     <div>
-        <button disabled={props.number == 1} onClick={updateMinusACB}>-</button>
-            <span>
+        <button className="buttonMSidebar" disabled={props.number == 1} onClick={updateMinusACB}>-</button>
+            <span className="buttonPSidebar">
                 {props.number} 
             </span>
-        <button  onClick={updatePlusACB}>+</button>
+        <button className="buttonPSidebar" onClick={updatePlusACB}>+</button>
 
             <table>
                 <tbody>
