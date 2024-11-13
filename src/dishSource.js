@@ -8,7 +8,7 @@ export function searchDishes(searchParams) {
             "X-DH2642-Key": PROXY_KEY,
             'X-DH2642-Group': "12",
         }
-    }).then(gotResponseACB).then(someACB);
+    }).then(gotResponseACB).then(resultACB);
 }
 
 function gotResponseACB(response) {
@@ -16,7 +16,7 @@ function gotResponseACB(response) {
     return response.json();
 }
 
-function someACB(param) {
+function resultACB(param) {
     console.log(param);
     return param.results;
 }
