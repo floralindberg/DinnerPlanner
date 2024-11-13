@@ -18,17 +18,15 @@ const Details = observer(
         }
         else if(props.model.currentDishPromiseState.data){
             return <DetailsView guests={props.model.numberOfGuests} dishData = {props.model.currentDishPromiseState.data}
-            currentDishPromiseState={props.model.currentDishPromiseState} isDishInMenu={(props.model.dishes).find(isDishInMenuCB)}
-             onAddToMenu={addToMenuHandlerACB}/>;
+            currentDishPromiseState={props.model.currentDishPromiseState} isDishInMenu={(props.model.dishes).find(isDishInMenuCB)} onAddToMenu={addToMenuHandlerACB}/>;
         }
 
-        function isDishInMenuCB(){
+        function isDishInMenuCB(param){
             return param && param.id === props.model.currentDishPromiseState.data.id;
         }
 
         function addToMenuHandlerACB(){
-
-           return props.model.addToMenu(props.model.currentDishPromiseState.data);
+            return props.model.addToMenu(props.model.currentDishPromiseState.data);
         }
 
     }
