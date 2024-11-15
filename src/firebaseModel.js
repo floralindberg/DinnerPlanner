@@ -2,15 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set} from "/src/teacherFirebase.js";
 import { firebaseConfig } from "./firebaseConfig";
 import { model } from "/src/DinnerModel.js";
-import { getMenuDetails } from "./dishSource";
-
-// Add relevant imports here 
-// TODO
+import { getMenuDetails, searchDishes } from "./dishSource";
 
 // Initialise firebase app, database, ref
 const app = initializeApp(firebaseConfig)
-const db= getDatabase(app)
-const PATH="dinnerModel12"
+const db = getDatabase(app)
+const PATH = "dinnerModel12"
 
 /*set(ref(db, PATH+"/test"), modelToPersistence({
     numberOfGuests:5,
@@ -19,11 +16,11 @@ const PATH="dinnerModel12"
 }));*/
 
 function modelToPersistence(model){
-  return {
-    nOfGsts: model.numberOfGuests,
-    arrayOfDishIDs: [...model.dishes].map(getIdsCB).sort(sortDishesCB),
-    currDishID: model.currentDishId
-  };
+    return {
+        nOfGsts: model.numberOfGuests,
+        arrayOfDishIDs: [...model.dishes].map(getIdsCB).sort(sortDishesCB),
+        currDishID: model.currentDishId
+    };
 }
 
 function sortDishesCB(id1,id2){
@@ -35,8 +32,13 @@ function getIdsCB(param){
 }
 
 function persistenceToModel(data, model){
-    getMenuDetails(data.arrayOfDishIDs).then()
-    // TODO return a promise
+    function setDishInModelACB(param){
+        model.setCurrentDishID(param)
+    }
+    if(!(data.arrayOfDishIDs)){
+        data.arrayOfDishIDs = [];
+    }
+    return getMenuDetails(data.arrayOfDishIDs).then(setDishInModelACB)
 }
 
 function saveToFirebase(model){
