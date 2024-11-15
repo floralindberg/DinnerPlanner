@@ -6,7 +6,7 @@ window.React= {createElement:createElement}; // needed in the lab because it wor
 
 import { configure, observable } from "mobx";
 configure({ enforceActions: "never", });  // we don't use Mobx actions
-
+import "/src/firebaseModel.js"
 
 // (1) ------------ retrieve the application state (model) ----------
 import { model } from '/src/DinnerModel.js';

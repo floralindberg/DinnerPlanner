@@ -23,6 +23,7 @@ const Search = observer (
             }
 
             function conditionsForReturn(param){
+                
                 if(!param.promise){
                     return <div>No data</div>
                 }
@@ -53,7 +54,10 @@ const Search = observer (
             type = {props.model.searchParams.type} onTextContent={setSearchTextACB} onTypeSelected={setSearchDishTypeACB}
             onButtonClicked={searchNowACB}  />{conditionsForReturn(props.model.searchResultsPromiseState)}</div>
 
-        }
+           
+        },
+         //props.model.doSearch()
+       
 
 )
 
