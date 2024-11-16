@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set} from "/src/teacherFirebase.js";
 import { firebaseConfig } from "./firebaseConfig";
-import { model } from "/src/DinnerModel.js";
 import { getMenuDetails, searchDishes } from "./dishSource";
 
 // Initialise firebase app, database, ref
 const app = initializeApp(firebaseConfig)
 const db = getDatabase(app)
 const PATH = "dinnerModel12"
+const rf= ref(db, PATH+"/test")
 
 /*set(ref(db, PATH+"/test"), modelToPersistence({
     numberOfGuests:5,
@@ -33,27 +33,50 @@ function getIdsCB(param){
 
 function persistenceToModel(data, model) {
     function setDishInModelACB(param) {
-        model.setCurrentDishID(param);
+        model.dishes = param;
+        console.log(param);
     }
 
-    data = data || {};
+    if(!data){
+        data = {};
+    }
 
-    data.arrayOfDishIDs = data.arrayOfDishIDs || [];
-    model.setNumberOfGuests(data.nOfGsts || 2);
-    model.setCurrentDishID(data.currDishID || null);
+    if(!(data.arrayOfDishIDs)){
+        data.arrayOfDishIDs = [];
+    }
 
+    if(!data.nOfGsts){
+        model.setNumberOfGuests(2)
+    }
+    else {
+    model.setNumberOfGuests(data.nOfGsts);
+    }
+    
+    if(!data.currDishID){
+        model.setCurrentDishId(null)
+    }
+    else{
+    model.setCurrentDishId(data.currDishID);
+    }
 
     return getMenuDetails(data.arrayOfDishIDs).then(setDishInModelACB);
 }
 
 function saveToFirebase(model){
-    
+    if(model.ready){
+    set(ref(db, PATH+"/test"),modelToPersistence(model))
+    }
 }
 function readFromFirebase(model){
-    // TODO
+    function convertingBackACB(cloudDt){
+        return persistenceToModel(cloudDt.val(),model)
+    }
+    model.ready=!model.ready
+    return get(ref(db, PATH+"/test")).then(convertingBackACB)
 }
 function connectToFirebase(model, watchFunction){
-    // TODO
+    Reaction(checkACB,sideEffectACB)
+    
 }
 // Remember to uncomment the following line:
 export { connectToFirebase, modelToPersistence, persistenceToModel, saveToFirebase, readFromFirebase }
