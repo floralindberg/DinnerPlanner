@@ -69,9 +69,10 @@ function saveToFirebase(model){
 }
 function readFromFirebase(model){
     function convertingBackACB(cloudDt){
+        model.ready = true
         return persistenceToModel(cloudDt.val(),model)
     }
-    model.ready=!model.ready
+    model.ready= false
     return get(ref(db, PATH+"/test")).then(convertingBackACB)
 }
 function connectToFirebase(model, watchFunction){
