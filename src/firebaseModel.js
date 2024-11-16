@@ -67,6 +67,7 @@ function saveToFirebase(model){
     set(ref(db, PATH+"/test"),modelToPersistence(model))
     }
 }
+
 function readFromFirebase(model){
     function convertingBackACB(cloudDt){
         model.ready = true
@@ -75,9 +76,21 @@ function readFromFirebase(model){
     model.ready= false
     return get(ref(db, PATH+"/test")).then(convertingBackACB)
 }
+
 function connectToFirebase(model, watchFunction){
-    Reaction(checkACB,sideEffectACB)
-    
+    function checkModelPropertiesCombACB(){
+        console.log();
+        return [model.numberOfGuests,model.dishes,model.currentDishId];
+    }
+
+    function saveModelToFirebaseACB(){
+        if (model.ready) {
+            saveToFirebase(model);
+        }
+        
+    }
+    readFromFirebase(model),
+    watchFunction(checkModelPropertiesCombACB,saveModelToFirebaseACB);
 }
 // Remember to uncomment the following line:
 export { connectToFirebase, modelToPersistence, persistenceToModel, saveToFirebase, readFromFirebase }

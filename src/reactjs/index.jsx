@@ -4,7 +4,7 @@ import { ReactRoot } from "/src/reactjs/ReactRoot.jsx";
 import "/src/teacherFetch.js"; // protection against fetch() in infinite re-render
 window.React= {createElement:createElement}; // needed in the lab because it works with both React and Vue
 
-import { configure, observable } from "mobx";
+import { configure, observable, reaction } from "mobx";
 configure({ enforceActions: "never", });  // we don't use Mobx actions
 import "/src/firebaseModel.js"
 
@@ -28,8 +28,13 @@ createRoot(document.getElementById('root')).render(<div><ReactRoot model={reacti
 window.myModel= reactiveModel;
 // making some example dishes available at the console:
 import dishesConst from "/test/dishesConst.js";
+import { connectToFirebase } from "../firebaseModel";
 window.dishesConst= dishesConst;
 
+
+reactiveModel.doSearch()
+
+connectToFirebase(reactiveModel, reaction);
 
 
 
