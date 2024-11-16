@@ -31,18 +31,23 @@ function getIdsCB(param){
     return param.id;
 }
 
-function persistenceToModel(data, model){
-    function setDishInModelACB(param){
-        model.setCurrentDishID(param)
+function persistenceToModel(data, model) {
+    function setDishInModelACB(param) {
+        model.setCurrentDishID(param);
     }
-    if(!(data.arrayOfDishIDs)){
-        data.arrayOfDishIDs = [];
-    }
-    return getMenuDetails(data.arrayOfDishIDs).then(setDishInModelACB)
+
+    data = data || {};
+
+    data.arrayOfDishIDs = data.arrayOfDishIDs || [];
+    model.setNumberOfGuests(data.nOfGsts || 2);
+    model.setCurrentDishID(data.currDishID || null);
+
+
+    return getMenuDetails(data.arrayOfDishIDs).then(setDishInModelACB);
 }
 
 function saveToFirebase(model){
-    // TODO
+    
 }
 function readFromFirebase(model){
     // TODO
