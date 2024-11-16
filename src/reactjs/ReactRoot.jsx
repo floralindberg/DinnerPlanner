@@ -2,9 +2,14 @@ import { Summary } from "./summaryPresenter.jsx";
 import { Sidebar } from "./sidebarPresenter.jsx";
 import { Details } from "./detailsPresenter.jsx";
 import { Search } from "./searchPresenter.jsx";
+import { observer } from "mobx-react-lite";
 
-// const ReactRoot = observer(   //  will be added in week 3
+const ReactRoot = observer(
+
 function ReactRoot(props){
+    if(!props.model.ready){
+        return <img src="https://brfenergi.se/iprog/loading.gif" />
+    }
     return (<div>
                 <div>
                     <div><Sidebar model={props.model} /></div>
@@ -17,5 +22,6 @@ function ReactRoot(props){
             </div>
             );
 }
+);
 
 export { ReactRoot }
