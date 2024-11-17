@@ -41,25 +41,28 @@ export function SidebarView (props) {
 
     return(
     <div>
-        <button className="buttonMSidebar" disabled={props.number == 1} onClick={updateMinusACB}>-</button>
-            <span className="buttonPSidebar">
-                {props.number} 
-            </span>
-        <button className="buttonPSidebar" onClick={updatePlusACB}>+</button>
-
-            <table>
-                <tbody>
-                        {
-                            sortDishes(props.dishes).map(dishesTableRowCB)
-                        }
-                    <tr>
-                        <td></td>
-                        <td> Total:  </td>
-                        <td></td>
-                        <td className="right">{(menuPrice(props.dishes)*props.number).toFixed(2)}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <button className="buttonMSidebar" disabled={props.number == 1} onClick={updateMinusACB}>-</button>
+                <span className="guestSidebar">
+                    {props.number} 
+                </span>
+            <button className="buttonPSidebar" onClick={updatePlusACB}>+</button>
+            
+            <div className="buttonContainer">
+                <table className="tableSidebar">
+                    <tbody className="textSidebar">
+                            {
+                                sortDishes(props.dishes).map(dishesTableRowCB)
+                            }
+                        <tr className="totals
+                        "> 
+                            <td></td>
+                            <td className="totals"> Total:  </td>
+                            <td></td>
+                            <td className="right">{(menuPrice(props.dishes)*props.number).toFixed(2)}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
     </div>
 )
     }

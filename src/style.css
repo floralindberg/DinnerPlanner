@@ -6,10 +6,6 @@
     text-align: right;
 }
 
-.spanet {
-
-}
-
 .image {
     display: flex;
     width: 150px;
@@ -22,10 +18,6 @@
     width: 150px;
     margin-left: 20px;
 }
-
-.searchResult {
-}
-
 
 .result {
     text-align: center;
@@ -57,12 +49,17 @@
     margin-right: 10px;
 }
 .textSidebar {
-    text-align: bottom;
+   vertical-align: top;
 }
+
+
+.tableSidebar {
+     margin-top: 10px;
+}
+ 
 
 .buttonXSidebar {
     width: 25px;
-    margin-top: 20px;
 }
 .buttonPSidebar {
     width: 25px;
@@ -109,7 +106,6 @@
     margin: 10px;
     flex: 100;
     min-width: 100px;
-    background-color: wheat;
     height: 100%;
     display: flex;
 }
@@ -132,4 +128,14 @@
     .flexParent {
         display: flex;
     }
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    gap: 10px; /* Add some space between buttons and text */
+}
+
+.totals {
+    margin-top: 30px;
 }
