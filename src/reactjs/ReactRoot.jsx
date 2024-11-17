@@ -10,14 +10,16 @@ function ReactRoot(props){
     if(!props.model.ready){
         return <img src="https://brfenergi.se/iprog/loading.gif" />
     }
-    return (<div>
+    return (<div className="flexParent">
                 <div>
-                    <div><Sidebar model={props.model} /></div>
+                    <div className="flexSidebar"><Sidebar model={props.model} /></div>
                 </div>
-                <div>
+                <div className="flexMain">
+                    <div className="mainContent">
                     <div><Details model = {props.model} /></div>
-                    <div><Summary model={props.model} /></div>
+                    <div className="summary"><Summary model={props.model} /></div>
                     <div><Search model={props.model} /></div>
+                    </div>
                 </div>
             </div>
             );

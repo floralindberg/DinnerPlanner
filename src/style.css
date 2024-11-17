@@ -7,21 +7,30 @@
 }
 
 .spanet {
-    text-align: center;
+
 }
 
 .image {
-    display: inline-block;
+    display: flex;
     width: 150px;
     vertical-align: top;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px;
 }
+
+.searchImageTitle {
+    text-align: center;
+    width: 150px;
+    margin-left: 20px;
+}
+
+.searchResult {
+}
+
 
 .result {
     text-align: center;
     display: flex;
-    gap: 50px;
+    flex-wrap: wrap;
 }
 
 .dishName {
@@ -33,6 +42,9 @@
     width: 170px;
     margin-bottom: 20px;
     margin-top: 20px;
+    /*använd ej verkar som?*/
+    margin-right: 20px;
+    
 }
 
 .price {
@@ -54,12 +66,20 @@
 }
 .buttonPSidebar {
     width: 25px;
-    margin-left: 15px;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .buttonMSidebar {
     width: 25px;
     margin-left: 3px;
+    margin-top: 10px;
+}
+
+.guestSidebar {
+    margin-right: 5px;
+    margin-left: 5px;
+    /*verkar ej användas?*/
 }
 
 .info {
@@ -83,4 +103,33 @@
 .searching {
     margin-top: 20px;
     margin-right: 10px;
+}
+
+.flexSidebar {
+    margin: 10px;
+    flex: 100;
+    min-width: 100px;
+    background-color: wheat;
+    height: 100%;
+    display: flex;
+}
+
+.flexMain {
+    display: flex;
+    flex-direction: row;
+}
+
+.mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+    flex-wrap: wrap;
+    /*verkar vara samma som flexMain?*/
+}
+
+@media (min-width:450px) and (min-device-width:450px){
+    .flexParent {
+        display: flex;
+    }
 }

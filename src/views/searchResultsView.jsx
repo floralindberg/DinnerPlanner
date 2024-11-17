@@ -7,7 +7,7 @@ export function SearchResultsView(props){
             <span key={searchResult.id} className="spanet" onClick={clickedACB}>
 
                 <img src={searchResult.image} height={'100'} className="image" />
-                <div>{searchResult.title}</div>
+                <div className="searchImageTitle">{searchResult.title}</div>
 
             </span>
         )
