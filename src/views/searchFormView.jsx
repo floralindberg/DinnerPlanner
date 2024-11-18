@@ -13,15 +13,29 @@ export function SearchFormView(props){
             </span>
             <span>
                 <select value = {props.type || ""} onChange = {selectedTypeACB} className="searching">
-                    <option value="">Choose:</option>
+                    <option value="">Choose Type:</option>
                     {
                         props.dishTypeOptions.map(renderOptionsCB)
                     }
                 </select>
             </span>
+
+            <span>
+                <select value = {props.diet || ""} onChange = {selectedDietACB} className="dietSearching">
+                    <option value="">Choose Diet:</option>
+                    {
+                        props.dishDietOptions.map(renderOptionsCB)
+                    }
+                </select>
+            </span>
+
             <span>
                 <button title="search" onClick={searchForDishACB} className="searching">Search!</button>
             </span>
+            <span>
+                <button onClick={navigateToSummaryACB}>Back to summary</button>
+            </span>
+
         </div>
     );
                 
@@ -39,6 +53,15 @@ export function SearchFormView(props){
     function searchForDishACB(evt){
         console.log(evt)
         props.onButtonClicked();
+    }
+
+    function navigateToSummaryACB(){
+        window.location.hash="#/summary";
+    }
+
+    function selectedDietACB(evt){
+        console.log(evt.target.value);
+        props.onDietSelected(evt.target.value );
     }
 
 }

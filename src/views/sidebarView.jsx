@@ -31,7 +31,7 @@ export function SidebarView (props) {
         return (
                     <tr key={dish.id } >
                         <td> <button className="buttonXSidebar" onClick={removeDish}>x</button></td>
-                        <td> <a className="textSidebar" href="#dish.title" onClick={hyperLinkACB}> {dish.title} </a></td>
+                        <td> <a className="textSidebar" href="#/details" onClick={hyperLinkACB}> {dish.title} </a></td>
                         <td> <span > {dishType(dish)} </span> </td>
                         <td className="right">{(dish.pricePerServing*props.number).toFixed(2)} </td>
                     </tr>
@@ -43,7 +43,7 @@ export function SidebarView (props) {
     <div>
             <button className="buttonMSidebar" disabled={props.number == 1} onClick={updateMinusACB}>-</button>
                 <span className="guestSidebar">
-                    {props.number} 
+                    {props.number}
                 </span>
             <button className="buttonPSidebar" onClick={updatePlusACB}>+</button>
             
@@ -54,7 +54,7 @@ export function SidebarView (props) {
                                 sortDishes(props.dishes).map(dishesTableRowCB)
                             }
                         <tr className="totals
-                        "> 
+                        ">
                             <td></td>
                             <td className="totals"> Total:  </td>
                             <td></td>

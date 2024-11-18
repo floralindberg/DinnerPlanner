@@ -16,56 +16,47 @@ function ReactRoot(props){
                 <div>
                     <div className="flexSidebar"><Sidebar model={props.model} /></div>
                 </div>
-
-                {MakeRouter(props.model)/*
                 <div>
                     <div>
-                    <div className="summary"><Summary model={props.model} /></div>
-                    <div className="mainContent"><Details model = {props.model} /></div>
-                    <div><Search model={props.model} /></div>
+                        <RouterProvider router={makeRouter(props.model)} />
                     </div>
-                </div>*/}
-            </div> 
-    );          
- },
+                </div>
+            </div>
+    );
+},
 );
 
-function createRouter(model){
+
+function makeRouter(model) {
 
     return createHashRouter([
         {
             path:"/",
-            element:<Search model={model} />,
+            element:<div><Search model={model} /></div>
         },
         {
             path:"/search",
-            element:<Search model={model} />,
+            element:<div><Search model={model} /></div>
         },
         {
             path:"/summary",
-            element:<Summary model={model} />,
+            element:<div className="summary"><Summary model={model} /></div>
         },
+
         {
             path:"/details",
-            element:<Details model = {model} />,
+            element:<div className="mainContent"><Details model = {model} /></div>
         },
-        {
+
+        {/*
         path:"/pathD/:ID",
-         element: <ParamsRoute />
-        }
-    
+        element: <ParamsRoute />
+        */}
     ])
 }
 
-function ParamsRoute(props){
+/*function ParamsRoute(props){
     return <div>choose Route {useParams().ID}</div>
-
-}
-
-function MakeRouter(reactiveModel){
-
-    return <RouterProvider router={createRouter(reactiveModel)} />
-
-}
+}*/
 
 export { ReactRoot }

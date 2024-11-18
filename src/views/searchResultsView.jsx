@@ -14,6 +14,7 @@ export function SearchResultsView(props){
 
         function clickedACB(evt){
             console.log(evt);
+            window.location.hash="#/details";
             return props.onDishClicked(searchResult);
         }
 
