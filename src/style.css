@@ -139,3 +139,7 @@
 .totals {
     margin-top: 30px;
 }
+
+.summary {
+   display: flex;
+}

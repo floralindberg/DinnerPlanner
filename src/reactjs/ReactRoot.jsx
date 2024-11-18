@@ -14,9 +14,9 @@ function ReactRoot(props){
                 <div>
                     <div className="flexSidebar"><Sidebar model={props.model} /></div>
                 </div>
-                <div className="flexMain">
-                    <div className="mainContent">
-                    <div><Details model = {props.model} /></div>
+                <div>
+                    <div>
+                    <div className="mainContent"><Details model = {props.model} /></div>
                     <div className="summary"><Summary model={props.model} /></div>
                     <div><Search model={props.model} /></div>
                     </div>
