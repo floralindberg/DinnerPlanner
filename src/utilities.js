@@ -39,6 +39,17 @@ export function compareDishesCB(dishA, dishB){
     return values[dishType(dishA)] - values[dishType(dishB)];
 }
 
+export function dishDiet (dish) {
+    if(dish.diet && dish.diet.find(isKnowDietCB)){
+        return dish.diet.find(isKnowDietCB)
+    }
+}
+
+function isKnowDietCB(diet) {
+    return diet == "vegan" || diet == "gluten free" || diet == "dairy free" 
+    || diet == "lacto ovo vegetarian" || diet == "pescetarian"
+}
+
 
 export function sortDishes(dishes){
     const clone = [...dishes].sort(compareDishesCB);
