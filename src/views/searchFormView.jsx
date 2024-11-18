@@ -13,21 +13,13 @@ export function SearchFormView(props){
             </span>
             <span>
                 <select value = {props.type || ""} onChange = {selectedTypeACB} className="searching">
-                    <option value="">Choose Type:</option>
+                    <option value="">Choose:</option>
                     {
                         props.dishTypeOptions.map(renderOptionsCB)
                     }
                 </select>
             </span>
 
-            <span>
-                <select value = {props.diet || ""} onChange = {selectedDietACB} className="dietSearching">
-                    <option value="">Choose Diet:</option>
-                    {
-                        props.dishDietOptions.map(renderOptionsCB)
-                    }
-                </select>
-            </span>
 
             <span>
                 <button title="search" onClick={searchForDishACB} className="searching">Search!</button>
