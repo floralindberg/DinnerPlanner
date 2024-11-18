@@ -143,3 +143,7 @@
 .summary {
    display: flex;
 }
+
+.dietSearching {
+    margin-right: 10px;
+}

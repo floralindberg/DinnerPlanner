@@ -43,6 +43,7 @@ const model = {
         }
         this.dishes= this.dishes.filter(shouldWeKeepDishCB);
     },
+
     
 
     // more methods will be added here, don't forget to separate them with comma!
@@ -56,7 +57,8 @@ const model = {
 
     doSearch(params){
         resolvePromise(searchDishes(params),this.searchResultsPromiseState);
-    }
+    },
+
 };
 
 

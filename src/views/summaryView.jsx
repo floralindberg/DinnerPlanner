@@ -10,10 +10,10 @@ export function SummaryView(props){
     }
 
     return (
-           <div>
-             <div className="backToSearchButton">
-                 <button onClick={backToSearchACB}>Back to search</button>
-             </div>
+            <div>
+                <div className="backToSearchButton">
+                    <button onClick={backToSearchACB}>Back to search</button>
+            </div>
 
             <div className="debug">
 

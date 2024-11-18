@@ -36,23 +36,16 @@ export function DetailsView(props){
             </table>
         );
     }
-    
-    function backToSearchACB(){
-        window.location.hash="#/search";
-    }
 
     return (
 
         <div>
-            <div className="backToSearchButton">
-                 <button onClick={backToSearchACB}>Back to search</button>
-             </div>
             <span>
                 <button disabled={props.isDishInMenu} className="buttons" onClick={addToMenuACB}>Add to menu!</button>
             </span>
             <span> </span>
             <span>
-                <button className="buttons" onClick={cancelDishACB}>Cancel</button>
+                <button className="buttons" onClick={backToSearchACB}>Cancel</button>
             </span>
             <div className="dishName">
                 {
@@ -91,11 +84,13 @@ export function DetailsView(props){
 
     function addToMenuACB(evt){
         console.log(evt)
+        window.location.hash="#/search";
         return props.onAddToMenu()
     }
 
-    function cancelDishACB(evt){
-        console.log(evt)
-        return props.evt
+    function backToSearchACB(){
+        window.location.hash="#/search";
     }
+
+    
 }
