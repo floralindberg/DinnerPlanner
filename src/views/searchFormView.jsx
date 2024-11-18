@@ -19,6 +19,16 @@ export function SearchFormView(props){
                     }
                 </select>
             </span>
+            
+            <span>
+                <select value = {props.diet || ""} onChange = {selectedDietACB} className="dietSearching">
+                    <option value="">Choose Diet:</option>
+                    {
+                        props.dishDietOptions.map(renderOptionsCB)
+                    }
+                </select>
+            </span>
+
             <span>
                 <button title="search" onClick={searchForDishACB} className="searching">Search!</button>
             </span>
