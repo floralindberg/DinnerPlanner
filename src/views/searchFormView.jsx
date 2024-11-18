@@ -20,7 +20,6 @@ export function SearchFormView(props){
                 </select>
             </span>
 
-
             <span>
                 <button title="search" onClick={searchForDishACB} className="searching">Search!</button>
             </span>

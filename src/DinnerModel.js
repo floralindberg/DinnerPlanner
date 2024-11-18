@@ -59,9 +59,6 @@ const model = {
         resolvePromise(searchDishes(params),this.searchResultsPromiseState);
     },
 
-    setSearchDiet(diet){
-        this.searchParams.diet = diet;
-    }
 };
 
 
