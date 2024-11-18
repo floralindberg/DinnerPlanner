@@ -4,11 +4,18 @@ import "/src/style.css"
 
 /* Functional JSX component. Name must start with capital letter */
 export function SummaryView(props){
+  
+    function backToSearchACB(){
+        window.location.hash="#/search"
+    }
+
     return (
+           <div>
+             <div className="backToSearchButton">
+                 <button onClick={backToSearchACB}>Back to search</button>
+             </div>
+
             <div className="debug">
-
-
-
 
               {/* TW 1.2 note the syntax: {JS_expression_or_comment} */}
               Summary for <span title="nr guests">{props.people}</span> persons:
@@ -34,6 +41,7 @@ export function SummaryView(props){
 
             }
 
+            </div>
             </div>
     );
     

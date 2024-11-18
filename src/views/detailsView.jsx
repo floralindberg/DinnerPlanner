@@ -36,10 +36,17 @@ export function DetailsView(props){
             </table>
         );
     }
+    
+    function backToSearchACB(){
+        window.location.hash="#/search";
+    }
 
     return (
 
         <div>
+            <div className="backToSearchButton">
+                 <button onClick={backToSearchACB}>Back to search</button>
+             </div>
             <span>
                 <button disabled={props.isDishInMenu} className="buttons" onClick={addToMenuACB}>Add to menu!</button>
             </span>

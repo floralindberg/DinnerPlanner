@@ -1,6 +1,7 @@
 import { createElement } from "react";
 import { createRoot } from "react-dom/client";
 import { ReactRoot } from "/src/reactjs/ReactRoot.jsx";
+import { MakeRouter } from "/src/reactjs/ReactRoot.jsx";
 import "/src/teacherFetch.js"; // protection against fetch() in infinite re-render
 window.React= {createElement:createElement}; // needed in the lab because it works with both React and Vue
 
