@@ -52,9 +52,4 @@ export function SearchFormView(props){
         window.location.hash="#/summary";
     }
 
-    function selectedDietACB(evt){
-        console.log(evt.target.value);
-        props.onDietSelected(evt.target.value );
-    }
-
 }

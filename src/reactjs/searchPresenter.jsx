@@ -18,10 +18,6 @@ const Search = observer (
                 props.model.setSearchType(type)
             }
 
-            function setSearchDishDietACB(diet){
-                props.model.setSearchDiet(diet)
-            }
-
             function searchNowACB(){
                 props.model.doSearch(props.model.searchParams)
             }
@@ -55,8 +51,7 @@ const Search = observer (
             }
 
             return <div className="searchResult"><SearchFormView dishTypeOptions= {["starter", "main course", "dessert"]}
-            dishDietOptions={["Vegan","Gluten free" , "Dairy free", "Lacto ovo vegetarian", "Pescetarian"]}
-            text = {props.model.searchParams.query} type = {props.model.searchParams.type} 
+            text = {props.model.searchParams.query} type = {props.model.searchParams.type}
             onTextContent={setSearchTextACB}
             onTypeSelected={setSearchDishTypeACB} onButtonClicked={searchNowACB}
             />{conditionsForReturn(props.model.searchResultsPromiseState)}</div>
